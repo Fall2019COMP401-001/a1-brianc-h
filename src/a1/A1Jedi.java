@@ -27,13 +27,18 @@ public class A1Jedi {
 			scan.next();
 			scan.next();
 			int numOfPurchases = scan.nextInt();
+			boolean[] previouslyPurchased = new boolean[numOfItems];
 			for (int j = 0; j < numOfPurchases; j++) {
 				int quantity = scan.nextInt();
 				String item = scan.next();
 				
 				int index = getIndexOfItem(item, numOfItems, itemNames);
-				customerPurchases[index]++;
 				itemsPurchased[index] += quantity;
+				
+				if (!previouslyPurchased[index]) {
+					previouslyPurchased[index] = true;
+					customerPurchases[index]++;
+				}
 			}
 		}
 		
