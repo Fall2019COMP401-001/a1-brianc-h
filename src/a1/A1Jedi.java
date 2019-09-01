@@ -14,6 +14,7 @@ public class A1Jedi {
 		int[] itemsPurchased = new int[numOfItems];
 		
 		
+		// load the item names into an array
 		for (int i = 0; i < numOfItems; i++) {
 			itemNames[i] = scan.next();
 			// ignore item cost
@@ -22,6 +23,9 @@ public class A1Jedi {
 		
 		int numOfCustomers = scan.nextInt();
 		
+		// outer loop gets the number of purchases for each customer
+		// inner loop gets the quantity of item purchased and adds it to amount purchased for that item
+		// customer purchases only incremented if the current customer has not already purchased the item
 		for (int i = 0; i < numOfCustomers; i++) {
 			// ignore first and last names
 			scan.next();
@@ -44,6 +48,8 @@ public class A1Jedi {
 		
 		scan.close();
 		
+		// print out using the format "[#customers] customers bought [#purchased] [item name]"
+		// replace [#customers] with "No" if the item wasn't purchased
 		for (int i = 0; i < numOfItems; i++) {
 			if (customerPurchases[i] == 0) {
 				System.out.println("No customers bought " + itemNames[i]);

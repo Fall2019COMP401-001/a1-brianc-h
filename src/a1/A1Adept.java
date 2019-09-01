@@ -36,7 +36,7 @@ public class A1Adept {
 				int quantity = scan.nextInt();
 				String item = scan.next();
 				
-				double cost = getCost(item, numOfItems, itemNames, itemCosts);
+				double cost = getCostOfItem(item, numOfItems, itemNames, itemCosts);
 				totalCost += cost * quantity;
 			}
 			
@@ -55,14 +55,15 @@ public class A1Adept {
 		
 		scan.close();
 		
-		System.out.println("Biggest: " + largestSpender + 
-				" (" + String.format("%.2f", largestCost) + ")");
-		System.out.println("Smallest: " + smallestSpender + 
-				" (" + String.format("%.2f", smallestCost) + ")");
-		System.out.println("Average: " + String.format("%.2f", cumulativeCost/numOfCustomers));
+		System.out.println("Biggest: " + largestSpender 
+				+ " (" + String.format("%.2f", largestCost) + ")");
+		System.out.println("Smallest: " + smallestSpender 
+				+ " (" + String.format("%.2f", smallestCost) + ")");
+		System.out.println("Average: " + 
+				String.format("%.2f", cumulativeCost/numOfCustomers));
 	}
 	
-	public static double getCost(String id, int numOfItems, String[] items, double[] costs) {
+	public static double getCostOfItem(String id, int numOfItems, String[] items, double[] costs) {
 		for (int i = 0; i < numOfItems; i++) {
 			if (id.equals(items[i])) {
 				return costs[i];

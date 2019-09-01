@@ -14,7 +14,7 @@ public class A1Novice {
 			String firstName = scan.next();
 			String lastName = scan.next();
 			int numOfItems = scan.nextInt();
-			double totalCost = 0;
+			double totalCost = 0.0;
 			
 			for (int j = 0; j < numOfItems; j++) {
 				int quantity = scan.nextInt();
