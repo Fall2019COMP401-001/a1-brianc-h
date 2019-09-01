@@ -10,6 +10,8 @@ public class A1Novice {
 		int numOfCustomers = scan.nextInt();
 		String[] output = new String[numOfCustomers];
 		
+		// loads relevant data
+		// formats data into string and stores it in output
 		for (int i = 0; i < numOfCustomers; i++) {
 			String firstName = scan.next();
 			String lastName = scan.next();
@@ -29,6 +31,7 @@ public class A1Novice {
 		
 		scan.close();
 		
+		// print output
 		for (int i = 0; i < numOfCustomers; i++) {
 			System.out.println(output[i]);
 		}
