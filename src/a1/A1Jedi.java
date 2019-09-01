@@ -23,9 +23,7 @@ public class A1Jedi {
 		
 		int numOfCustomers = scan.nextInt();
 		
-		// outer loop gets the number of purchases for each customer
-		// inner loop gets the quantity of item purchased and adds it to amount purchased for that item
-		// customer purchases only incremented if the current customer has not already purchased the item
+		
 		for (int i = 0; i < numOfCustomers; i++) {
 			// ignore first and last names
 			scan.next();
@@ -36,9 +34,11 @@ public class A1Jedi {
 				int quantity = scan.nextInt();
 				String item = scan.next();
 				
-				int index = getIndexOfItem(item, numOfItems, itemNames);
+				// get item index
+				int index = getIndexOfItem(item, itemNames);
 				itemsPurchased[index] += quantity;
 				
+				// customer purchases only incremented if the current customer has not already purchased the item
 				if (!previouslyPurchased[index]) {
 					previouslyPurchased[index] = true;
 					customerPurchases[index]++;
@@ -60,8 +60,12 @@ public class A1Jedi {
 		}
 	}
 	
-	public static int getIndexOfItem(String id, int numOfItems, String[] items) {
-		for (int i = 0; i < numOfItems; i++) {
+	/* Method that finds and returns index of a specific item name
+	 * id: item name used to find index
+	 * items: array of item names
+	 */
+	public static int getIndexOfItem(String id, String[] items) {
+		for (int i = 0; i < items.length; i++) {
 			if (id.equals(items[i])) {
 				return i;
 			}

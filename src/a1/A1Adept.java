@@ -30,11 +30,11 @@ public class A1Adept {
 		// keeps track of all money spent by all customers
 		double cumulativeCost = 0.0;
 		
-		// loads relevant information
-		// looks up item cost to get total cost
-		// compares total cost to current smallest/largest cost
-		// replaces values if it is smaller/larger
+		
+		
+		
 		for (int i = 0; i < numOfCustomers; i++) {
+			// loads relevant information
 			String firstName = scan.next();
 			String lastName = scan.next();
 			int numOfPurchases = scan.nextInt();
@@ -43,12 +43,15 @@ public class A1Adept {
 				int quantity = scan.nextInt();
 				String item = scan.next();
 				
-				double cost = getCostOfItem(item, numOfItems, itemNames, itemCosts);
+				// looks up item cost to get total cost
+				double cost = getCostOfItem(item, itemNames, itemCosts);
 				totalCost += cost * quantity;
 			}
 			
 			cumulativeCost += totalCost;
 			
+			// compares total cost to current smallest/largest cost
+			// replaces values if it is smaller/larger
 			if (totalCost > largestCost) {
 				largestSpender = firstName + " " + lastName;
 				largestCost = totalCost;
@@ -72,12 +75,20 @@ public class A1Adept {
 				String.format("%.2f", cumulativeCost/numOfCustomers));
 	}
 	
-	public static double getCostOfItem(String id, int numOfItems, String[] items, double[] costs) {
-		for (int i = 0; i < numOfItems; i++) {
+	/* Method that returns of cost of an item
+	 * id: item name
+	 * items: array of item names
+	 * costs: array of item costs
+	 * items and costs are parallel arrays
+	 */
+	public static double getCostOfItem(String id, String[] items, double[] costs) {
+		for (int i = 0; i < items.length; i++) {
 			if (id.equals(items[i])) {
 				return costs[i];
 			}
 		}
+		
+		// returns 0 if the item name isn't found
 		return 0.0;
 	}
 }

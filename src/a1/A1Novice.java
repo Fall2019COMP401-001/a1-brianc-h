@@ -10,8 +10,6 @@ public class A1Novice {
 		int numOfCustomers = scan.nextInt();
 		String[] output = new String[numOfCustomers];
 		
-		// loads relevant data
-		// formats data into string and stores it in output
 		for (int i = 0; i < numOfCustomers; i++) {
 			String firstName = scan.next();
 			String lastName = scan.next();
@@ -25,6 +23,7 @@ public class A1Novice {
 				totalCost += quantity * price;
 			}
 			
+			// format and store output string
 			String costAsString = String.format("%.2f", totalCost);
 			output[i] = firstName.charAt(0) + ". " + lastName + ": " + costAsString;
 		}
